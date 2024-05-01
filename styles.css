@@ -253,6 +253,11 @@ nav ul li a:hover::after {
     transform: translateY(0);
 }
 
+.timeline__date {
+    font-size: 20px;
+    font-weight: bold;
+}
+
 .timeline__date--right {
     text-align: right;
 }
