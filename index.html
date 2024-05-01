@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Site</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+        window.onload = function() {
+            // Smooth scroll to the top of the page when it is reloaded
+            window.scrollTo({
+                top: 0,
+                behavior: 'smooth'
+            });
+        };
+    </script>
+    <script>
+        window.ga = window.ga || function() {
+            (ga.q = ga.q || []).push(arguments);
+        };
+        ga.l = +new Date();
+        ga('create', 'UA-105392568-1', 'auto');
+        ga('send', 'pageview')
+    </script>
+</head>
+<body>
+    <!-- Fluid simulation covering initial screen -->
+    <section class="fluid-simulation">
+        <canvas></canvas>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </nav>
+    </section>
+    
+
+    <!-- Content section that appears when scrolling down -->
+    <section id="about" class="about-content">
+        <h1 class="section__header">Welcome to My Portfolio</h1>
+        <p class="section__paragraph">Hey there! I'm currently a student in Simon Fraser University's Computing Science program.</p>
+        <p class="section__paragraph">Throughout my academic career, I have gained interest and experience in a couple of fields including Data Science, Artificial Intelligence, Machine Learning and Human Computer Interaction.</p>
+        <p class="section__paragraph">As a passionate learner, I am always excited to look for new opportunities and experiences to be able to grow my knowledge in various topics. I enjoy learning new concepts in hopes to be able to apply them to my future endeavours.</p>
+    </section>
+
+    <script src="./fluid.js"></script>
+    <script src="./fade.js"></script>
+</body>
+</html>
