@@ -1,4 +1,5 @@
 const paragraphs = document.querySelectorAll(".section__paragraph");
+const timelineComponents = document.querySelectorAll(".timeline__component");
 
 document.addEventListener("scroll", function() {
     paragraphs.forEach((paragraph) => {
@@ -9,8 +10,18 @@ document.addEventListener("scroll", function() {
             paragraph.classList.remove("section__paragraph--visible");
         }
     });
+
+    timelineComponents.forEach(component => {
+        if (isInView(component)) {
+            component.classList.add("timeline__component--visible");
+            component.classList.remove("fade-out");
+        } else {
+            component.classList.remove("timeline__component--visible");
+        }
+    });
 });
 
+// Function to check if an element is in the viewport
 function isInView(element) {
     const rect = element.getBoundingClientRect();
     return (

@@ -3,6 +3,7 @@ body, html {
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
+    background-color: #222831;
 }
 
 .fluid-simulation {
@@ -56,40 +57,9 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-/* Keyframes for fade-in animation */
-@keyframes fade-in {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
-}
-
-/* Keyframes for fade-out animation */
-@keyframes fade-out {
-    from {
-        opacity: 1;
-    }
-    to {
-        opacity: 0;
-    }
-}
-
-/* Apply fade-in animation to the content-wrapper */
-.content-wrapper.in-view {
-    animation: fade-in 1s ease forwards;
-}
-
-/* Apply fade-out animation to the content-wrapper */
-.content-wrapper.fade-out {
-    animation: fade-out 1s ease forwards;
-}
-
 .about-content {
     margin: 0 auto;
     padding: 10rem;
-    background-color: #222831;
 }
 
 .section__header {
@@ -112,4 +82,111 @@ nav ul li a:hover::after {
 .section__paragraph--visible {
     transform: translateY(0);
     opacity: 1;
+}
+
+.projects-content {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: #ffffff;
+    margin: 0 auto;
+    padding: 10rem;
+}
+
+.experience_images {
+    max-width: 80px;
+    padding-top: 10px;
+}
+
+.experience_images--right {
+    float: right;
+}
+
+.experience_images--sfu {
+    max-width: 100px;
+}
+
+.timeline {
+    margin: 0 auto;
+    max-width: 750px;
+    display: grid;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    grid-template-columns: 1fr 3px 1fr;
+    color: #ffffff;
+}
+
+.timeline__component {
+    margin: 0 20px 20px 20px;
+}
+
+.timeline__component--bg {
+    padding: 1.5em;
+    background: rgba(255, 255, 255, 0.2);
+    box-shadow: rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+.timeline__component--bottom {
+    margin-bottom: 0;
+}
+
+.timeline__component--hidden {
+    opacity: 0;
+    transform: translateY(50px); /* Adjust as needed for the desired initial position */
+    transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.timeline__component--visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.timeline__date--right {
+    text-align: right;
+}
+
+.timeline__middle {
+    position: relative;
+    background: white;
+}
+
+.timeline__point {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 15px;
+    background: white;
+    border-radius: 50%;
+}
+
+.timeline__point--bottom {
+    top: initial;
+    bottom: 0;
+}
+
+.timeline__title {
+    margin: 0;
+    font-size: 1.15em;
+    font-weight: bold;
+}
+
+/* Default padding for larger screens */
+.about-content,
+.projects-content {
+    padding: 10rem;
+}
+
+/* Define padding for smaller screens using media queries */
+@media screen and (max-width: 768px) {
+    .about-content,
+    .projects-content {
+        padding: 5rem; /* Adjust padding for smaller screens */
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .about-content,
+    .projects-content {
+        padding: 2rem; /* Adjust padding for even smaller screens */
+    }
 }
