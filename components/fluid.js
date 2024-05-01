@@ -73,6 +73,7 @@ function pointerPrototype () {
 let pointers = [];
 let splatStack = [];
 pointers.push(new pointerPrototype());
+pointers.push(new pointerPrototype());
 
 const { gl, ext } = getWebGLContext(canvas);
 
@@ -1095,6 +1096,44 @@ function resizeDoubleFBO (target, w, h, internalFormat, format, type, param) {
     target.texelSizeY = 1.0 / h;
     return target;
 }
+
+/* async function movePointer() {
+    while (true) {
+        // Create a pointer object
+        let pointer = pointers[1];
+
+        // Simulate Pointer Down
+        updatePointerDownData(pointer, 1, 0, 0); // Start the simulation at position (0,0)
+
+        let angle = 0;
+        let radius = 0;
+        let duration = 15000; // Duration in milliseconds (adjust as needed)
+        let startTime = performance.now();
+
+        while (performance.now() - startTime < duration) {
+            // Update pointer position in a spiral pattern
+            let posX = canvas.width / 2 + radius * Math.cos(angle);
+            let posY = canvas.height / 2 + radius * Math.sin(angle);
+
+            // Increment angle and radius for the next position
+            angle += 0.1;
+            radius += 0.5;
+
+            // Simulate Pointer Move
+            updatePointerMoveData(pointer, posX, posY);
+
+            // Apply inputs (e.g., splatPointer)
+
+            // Delay for animation effect
+            await new Promise(resolve => requestAnimationFrame(resolve)); // Use requestAnimationFrame for smooth animation
+        }
+
+        // Simulate Pointer Up (if needed)
+        // updatePointerUpData(pointer);
+    }
+}
+
+movePointer(); */
 
 function createTextureAsync (url) {
     let texture = gl.createTexture();
