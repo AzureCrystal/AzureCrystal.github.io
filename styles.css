@@ -4,6 +4,14 @@ body, html {
     padding: 0;
     scroll-behavior: smooth;
     background-color: #222831;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.unselectable {
+    -webkit-user-select: none; /* Chrome, Safari, Opera */
+    -moz-user-select: none; /* Firefox */
+    -ms-user-select: none; /* Internet Explorer/Edge */
+    user-select: none; /* Standard syntax */
 }
 
 .fluid-simulation {
@@ -57,16 +65,67 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+.main_title {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1; /* Ensure title is above canvas */
+    color: #fff; /* Set title color */
+    font-size: 80px; /* Set title font size */
+    font-weight: bold;
+    text-align: center;
+}
+
+.sub_title {
+    position: absolute;
+    top: calc(50% + 40px); /* Adjust based on main title font size */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1; /* Ensure subtitle is above canvas */
+    color: #c8c8c8; /* Set subtitle color */
+    font-size: 30px; /* Set subtitle font size */
+    font-weight: bold;
+    text-align: center;
+
+    /* Additional styles for mobile devices */
+}
+
+@media (max-width: 767px) {
+    .main_title {
+        font-size: 60px; /* Adjust main title font size for mobile */
+    }
+    .sub_title {
+        font-size: 20px; /* Adjust subtitle font size for mobile */
+        top: calc(50% + 80px); /* Adjust based on main title font size */
+    }
+}
+
 .about-content {
     margin: 0 auto;
     padding: 10rem;
 }
 
 .section__header {
+    position: relative;
     color: #ffffff;
     font-size: 50px;
     font-weight: bold;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+.section__header::after {
+    content: '';
+    width: 0; /* Initially set width to 0 */
+    height: 3px;
+    background: #a200ff;
+    position: absolute;
+    left: 0; /* Start position from left */
+    bottom: -6px;
+    transition: width 0.5s ease; /* Use width property for transition */
+}
+
+.section__header.section__header--visible::after {
+    width: 100%; /* When visible, increase width to 100% */
 }
 
 .section__paragraph {
@@ -76,7 +135,6 @@ nav ul li a:hover::after {
     transition: 1s ease;
     color: #c6c6c6;
     font-size: 30px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 .section__paragraph--visible {
@@ -85,7 +143,6 @@ nav ul li a:hover::after {
 }
 
 .projects-content {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: #ffffff;
     margin: 0 auto;
     padding: 10rem;
@@ -108,7 +165,6 @@ nav ul li a:hover::after {
     margin: 0 auto;
     max-width: 750px;
     display: grid;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     grid-template-columns: 1fr 3px 1fr;
     color: #ffffff;
 }
@@ -119,6 +175,7 @@ nav ul li a:hover::after {
 
 .timeline__component--bg {
     padding: 1.5em;
+    padding-bottom: 0.7em;
     background: rgba(255, 255, 255, 0.2);
     box-shadow: rgba(0, 0, 0, 0.2);
     border-radius: 10px;

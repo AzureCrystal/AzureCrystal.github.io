@@ -1,5 +1,6 @@
 const paragraphs = document.querySelectorAll(".section__paragraph");
 const timelineComponents = document.querySelectorAll(".timeline__component");
+const sectionHeaders = document.querySelectorAll(".section__header");
 
 document.addEventListener("scroll", function() {
     paragraphs.forEach((paragraph) => {
@@ -17,6 +18,17 @@ document.addEventListener("scroll", function() {
             component.classList.remove("fade-out");
         } else {
             component.classList.remove("timeline__component--visible");
+        }
+    });
+
+    sectionHeaders.forEach(header => {
+        const textWidth = header.offsetWidth + 'px'; // Get the width of the header text
+        header.style.setProperty('--width', textWidth); // Set width as a custom CSS property
+        if (isInView(header)) {
+            header.classList.add("section__header--visible");
+            header.classList.remove("fade-out");
+        } else {
+            header.classList.remove("section__header--visible");
         }
     });
 });
