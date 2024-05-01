@@ -237,13 +237,19 @@ nav ul li a:hover::after {
 @media screen and (max-width: 768px) {
     .about-content,
     .projects-content {
-        padding: 5rem; /* Adjust padding for smaller screens */
+        padding: 3rem; /* Adjust padding for smaller screens */
+    }
+    nav ul li {
+        margin: 5px 5px;
     }
 }
 
 @media screen and (max-width: 480px) {
     .about-content,
     .projects-content {
-        padding: 2rem; /* Adjust padding for even smaller screens */
+        padding: 1.5rem; /* Adjust padding for even smaller screens */
+    }
+    nav ul li {
+        margin: 5px 5px;
     }
 }
