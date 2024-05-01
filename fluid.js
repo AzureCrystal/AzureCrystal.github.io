@@ -1446,10 +1446,8 @@ canvas.addEventListener('mousemove', e => {
     updatePointerMoveData(pointer, posX, posY);
 });
 
-// Commented out window mouseup listener, as it's not needed
-
 // Add event listener for touchstart on the document
-document.addEventListener('touchstart', e => {
+canvas.addEventListener('touchstart', e => {
     const touches = e.targetTouches;
     if (touches.length > 0 && touches[0].target === canvas) {
         e.preventDefault();
@@ -1464,7 +1462,7 @@ document.addEventListener('touchstart', e => {
 });
 
 // Add event listener for touchmove on the document
-document.addEventListener('touchmove', e => {
+canvas.addEventListener('touchmove', e => {
     const touches = e.targetTouches;
     if (touches.length > 0 && touches[0].target === canvas) {
         e.preventDefault();
