@@ -296,6 +296,9 @@ nav ul li a:hover::after {
     padding-left: 10rem;
     padding-right: 10rem;
 }
+.projects-content {
+    padding-bottom: 2rem;
+}
 
 /* Define padding for smaller screens using media queries */
 @media screen and (max-width: 768px) {
