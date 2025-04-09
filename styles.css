@@ -64,21 +64,21 @@ nav ul li a:hover::after {
 
 .side-nav {
     position: fixed;
-    top: 50px;
-    right: -250px;
-    width: auto;
-    height: auto; /* Default to auto (content height) */
+    top: 50px; /* Adjust this if necessary to avoid overlap with other elements */
+    right: 0; /* Start from the right edge */
+    width: 250px; /* Set a fixed width for the side nav */
+    height: auto; /* Default height based on content */
     background-color: #333;
     color: white;
     transition: transform 0.2s ease-in-out;
-    transform: translateX(0);
+    transform: translateX(100%); /* Initially off-screen */
     padding: 20px;
     font-weight: bold;
     z-index: 100;
 }
 
 .side-nav.open {
-    transform: translateX(-100%);
+    transform: translateX(0); /* Slide in the side nav */
 }
 
 .side-nav ul {
@@ -111,11 +111,11 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+/* On mobile, ensure the sidebar covers the full height */
 @media (max-width: 768px) {
-    /* On mobile, set the height to 100vh for full viewport height */
     .side-nav {
-        right: -250px;
-        height: 100vh; /* Full height of the viewport on mobile */
+        height: 100%; /* Full viewport height */
+        top: 0px
     }
 
     /* Add a button to toggle side nav on mobile */
@@ -130,10 +130,17 @@ nav ul li a:hover::after {
         border: none;
         padding: 10px;
         cursor: pointer;
+        opacity: 0; /* Initially invisible */
+        transition: opacity 0.3s ease-in-out; /* Smooth fade-in effect */
+        z-index: 101; /* Make sure it stays on top */
+    }
+
+    #mobile-nav-toggle.visible {
+        opacity: 1; /* Fully visible */
     }
 }
 
-/* Desktop view */
+/* On desktop, keep height based on content */
 @media (min-width: 769px) {
     /* Hide the mobile nav toggle button on desktop */
     #mobile-nav-toggle {
@@ -143,6 +150,7 @@ nav ul li a:hover::after {
     /* On desktop, make sure the height is auto based on the content */
     .side-nav {
         height: auto;  /* Keep the height based on content on desktop */
+        top: 50px;
     }
 }
 
