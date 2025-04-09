@@ -62,22 +62,23 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
-/* Side Navigation */
 .side-nav {
     position: fixed;
     top: 50px;
     right: -250px;
     width: auto;
-    height: auto;
+    height: auto; /* Default to auto (content height) */
     background-color: #333;
     color: white;
-    transition: right 0.3s ease;
+    transition: transform 0.2s ease-in-out;
+    transform: translateX(0);
     padding: 20px;
     font-weight: bold;
+    z-index: 100;
 }
 
 .side-nav.open {
-    right: 0;
+    transform: translateX(-100%);
 }
 
 .side-nav ul {
@@ -108,6 +109,41 @@ nav ul li a:hover::after {
 
 .side-nav ul li a:hover::after {
     width: 100%;
+}
+
+@media (max-width: 768px) {
+    /* On mobile, set the height to 100vh for full viewport height */
+    .side-nav {
+        right: -250px;
+        height: 100vh; /* Full height of the viewport on mobile */
+    }
+
+    /* Add a button to toggle side nav on mobile */
+    #mobile-nav-toggle {
+        display: block;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        font-size: 30px;
+        background-color: transparent;
+        color: white;
+        border: none;
+        padding: 10px;
+        cursor: pointer;
+    }
+}
+
+/* Desktop view */
+@media (min-width: 769px) {
+    /* Hide the mobile nav toggle button on desktop */
+    #mobile-nav-toggle {
+        display: none;  /* Button is hidden on larger screens */
+    }
+
+    /* On desktop, make sure the height is auto based on the content */
+    .side-nav {
+        height: auto;  /* Keep the height based on content on desktop */
+    }
 }
 
 /* Titles */
