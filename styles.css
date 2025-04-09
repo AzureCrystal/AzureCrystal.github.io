@@ -297,7 +297,7 @@ nav ul li a:hover::after {
 .experience_images {
     max-width: 80px;
     padding-top: 10px;
-    
+    filter: drop-shadow(-0.2rem 0.2rem 0.4rem #000000);
 }
 
 .experience_images--right {
@@ -315,6 +315,7 @@ nav ul li a:hover::after {
     display: grid;
     grid-template-columns: 1fr 3px 1fr;
     color: #ffffff;
+    filter: drop-shadow(-0.2rem 0.2rem 0.4rem -0.3rem #000000);
 }
 
 .timeline__component {
@@ -367,6 +368,8 @@ nav ul li a:hover::after {
     height: 15px;
     background: white;
     border-radius: 50%;
+    filter: drop-shadow(0rem 0rem 0.4rem #000000);
+    z-index: 10;
 }
 
 .timeline__point--bottom {
