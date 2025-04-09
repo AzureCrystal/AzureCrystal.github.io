@@ -1,3 +1,4 @@
+/* General Styles */
 body, html {
     height: 100%;
     margin: 0;
@@ -8,10 +9,7 @@ body, html {
 }
 
 .unselectable {
-    -webkit-user-select: none; /* Chrome, Safari, Opera */
-    -moz-user-select: none; /* Firefox */
-    -ms-user-select: none; /* Internet Explorer/Edge */
-    user-select: none; /* Standard syntax */
+    user-select: none; /* Prevent text selection */
 }
 
 .fluid-simulation {
@@ -29,13 +27,13 @@ body, html {
     z-index: 0;
 }
 
+/* Navigation Styles */
 nav {
     position: relative;
     z-index: 1;
 }
 
 nav ul li {
-    z-index: 1;
     display: inline-block;
     list-style: none;
     margin: 10px 20px;
@@ -45,7 +43,6 @@ nav ul li a {
     color: #fff;
     text-decoration: none;
     font-size: 26px;
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     font-weight: bold;
     position: relative;
 }
@@ -65,42 +62,91 @@ nav ul li a:hover::after {
     width: 100%;
 }
 
+/* Side Navigation */
+.side-nav {
+    position: fixed;
+    top: 50px;
+    right: -250px;
+    width: auto;
+    height: auto;
+    background-color: #333;
+    color: white;
+    transition: right 0.3s ease;
+    padding: 20px;
+    font-weight: bold;
+}
+
+.side-nav.open {
+    right: 0;
+}
+
+.side-nav ul {
+    list-style-type: none;
+    padding: 20px;
+}
+
+.side-nav ul li {
+    margin: 20px 0;
+}
+
+.side-nav ul li a {
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.side-nav ul li a::after {
+    content: '';
+    width: 0;
+    height: 3px;
+    background: #a200ff;
+    position: absolute;
+    left: 0;
+    bottom: -6px;
+    transition: 0.5s;
+}
+
+.side-nav ul li a:hover::after {
+    width: 100%;
+}
+
+/* Titles */
 .main_title {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    z-index: 1; /* Ensure title is above canvas */
-    color: #fff; /* Set title color */
-    font-size: 80px; /* Set title font size */
+    z-index: 1;
+    color: #fff;
+    font-size: 80px;
     font-weight: bold;
     text-align: center;
 }
 
 .sub_title {
     position: absolute;
-    top: calc(50% + 40px); /* Adjust based on main title font size */
+    top: calc(50% + 40px);
     left: 50%;
     transform: translateX(-50%);
-    z-index: 1; /* Ensure subtitle is above canvas */
-    color: #c8c8c8; /* Set subtitle color */
-    font-size: 30px; /* Set subtitle font size */
+    z-index: 1;
+    color: #c8c8c8;
+    font-size: 30px;
     font-weight: bold;
     text-align: center;
-
-    /* Additional styles for mobile devices */
 }
 
+/* Media Queries for Mobile */
 @media (max-width: 767px) {
     .main_title {
-        font-size: 60px; /* Adjust main title font size for mobile */
+        font-size: 60px;
     }
     .sub_title {
-        font-size: 20px; /* Adjust subtitle font size for mobile */
-        top: calc(50% + 80px); /* Adjust based on main title font size */
+        font-size: 20px;
+        top: calc(50% + 80px);
     }
 }
 
+/* Tag List */
 .tag-list {
     margin: 0;
     padding-inline: 0;
@@ -115,36 +161,30 @@ nav ul li a:hover::after {
     color: white;
 }
 
+/* Scroller */
 .scroller {
     max-width: 600px;
-    margin: 0 auto; /* Add this line to center the scroller */
+    margin: 0 auto;
 }
-  
+
 .scroller__inner {
     padding-block: 1rem;
     display: flex;
     flex-wrap: wrap;
     gap: 1rem;
 }
-  
+
 .scroller[data-animated="true"] {
     border: 2px solid #a200ff;
     overflow: hidden;
-    -webkit-mask: linear-gradient(
-        90deg,
-        transparent,
-        white 20%,
-        white 80%,
-        transparent
-    );
+    -webkit-mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
     mask: linear-gradient(90deg, transparent, white 20%, white 80%, transparent);
 }
-  
+
 .scroller[data-animated="true"] .scroller__inner {
     width: max-content;
     flex-wrap: nowrap;
-    animation: scroll var(--_animation-duration, 40s)
-    var(--_animation-direction, forwards) linear infinite;
+    animation: scroll var(--_animation-duration, 40s) var(--_animation-direction, forwards) linear infinite;
 }
 
 .scroller[data-direction="right"] {
@@ -169,6 +209,7 @@ nav ul li a:hover::after {
     }
 }
 
+/* Section Styles */
 .section__header {
     position: relative;
     color: #ffffff;
@@ -178,17 +219,17 @@ nav ul li a:hover::after {
 
 .section__header::after {
     content: '';
-    width: 0; /* Initially set width to 0 */
+    width: 0;
     height: 3px;
     background: #a200ff;
     position: absolute;
-    left: 0; /* Start position from left */
+    left: 0;
     bottom: -6px;
-    transition: width 0.5s ease; /* Use width property for transition */
+    transition: width 0.5s ease;
 }
 
 .section__header.section__header--visible::after {
-    width: 100%; /* When visible, increase width to 100% */
+    width: 100%;
 }
 
 .section__paragraph {
@@ -205,6 +246,7 @@ nav ul li a:hover::after {
     opacity: 1;
 }
 
+/* Experience Images */
 .experience_images {
     max-width: 80px;
     padding-top: 10px;
@@ -218,6 +260,7 @@ nav ul li a:hover::after {
     max-width: 100px;
 }
 
+/* Timeline Styles */
 .timeline {
     margin: 0 auto;
     max-width: 750px;
@@ -244,7 +287,7 @@ nav ul li a:hover::after {
 
 .timeline__component--hidden {
     opacity: 0;
-    transform: translateY(50px); /* Adjust as needed for the desired initial position */
+    transform: translateY(50px);
     transition: opacity 0.5s ease, transform 0.5s ease;
 }
 
@@ -289,23 +332,24 @@ nav ul li a:hover::after {
     font-weight: bold;
 }
 
-/* Default padding for larger screens */
+/* Padding adjustments for smaller screens */
 .about-content,
 .projects-content {
     padding-top: 2rem;
-    padding-left: 10rem;
-    padding-right: 10rem;
+    padding-left: 5rem;
+    padding-right: 20rem;
 }
+
 .projects-content {
     padding-bottom: 2rem;
 }
 
-/* Define padding for smaller screens using media queries */
 @media screen and (max-width: 768px) {
     .about-content,
     .projects-content {
-        padding: 3rem; /* Adjust padding for smaller screens */
+        padding: 3rem;
     }
+
     nav ul li {
         margin: 5px 5px;
     }
@@ -314,8 +358,9 @@ nav ul li a:hover::after {
 @media screen and (max-width: 480px) {
     .about-content,
     .projects-content {
-        padding: 1.5rem; /* Adjust padding for even smaller screens */
+        padding: 1.5rem;
     }
+
     nav ul li {
         margin: 5px 5px;
     }
