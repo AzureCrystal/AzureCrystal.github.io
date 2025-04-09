@@ -131,12 +131,14 @@ nav ul li a:hover::after {
         padding: 10px;
         cursor: pointer;
         opacity: 0; /* Initially invisible */
-        transition: opacity 0.3s ease-in-out; /* Smooth fade-in effect */
+        transition: opacity 0.1s ease-in-out; /* Smooth fade-in effect */
+        pointer-events: none;
         z-index: 101; /* Make sure it stays on top */
     }
 
     #mobile-nav-toggle.visible {
         opacity: 1; /* Fully visible */
+        pointer-events: auto;
     }
 }
 
