@@ -66,7 +66,7 @@ nav ul li a:hover::after {
     position: fixed;
     top: 50px; /* Adjust this if necessary to avoid overlap with other elements */
     right: 0; /* Start from the right edge */
-    width: 250px; /* Set a fixed width for the side nav */
+    width: auto; /* Set a fixed width for the side nav */
     height: auto; /* Default height based on content */
     background-color: #333;
     color: white;

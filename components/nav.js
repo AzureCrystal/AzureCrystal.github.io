@@ -14,13 +14,12 @@ document.addEventListener('click', function(event) {
     }
 });
 
-const menuLinks = document.querySelectorAll('.side-nav ul li a');
-menuLinks.forEach(link => {
+const menuLinksSide = document.querySelectorAll('.side-nav ul li a');
+menuLinksSide.forEach(link => {
     const sideNav = document.getElementById('sideNav');
     link.addEventListener('click', function() {
         if (window.innerWidth <= 768) {
             const mobileNavButton = document.getElementById('mobile-nav-toggle');
-            console.log(link.getAttribute('href'))
             if (link.getAttribute('href') === "#") {
                 mobileNavButton.classList.remove('visible');
             }
@@ -29,6 +28,24 @@ menuLinks.forEach(link => {
         else {
             if (link.getAttribute('href') === "#") {
                 sideNav.classList.remove('open')
+            }
+        }
+    });
+});
+
+const menuLinksMain = document.querySelectorAll('nav ul li a');
+menuLinksMain.forEach(link => {
+    const sideNav = document.getElementById('sideNav');
+    link.addEventListener('click', function() {
+        if (window.innerWidth <= 768) {
+            const mobileNavButton = document.getElementById('mobile-nav-toggle');
+            if (link.getAttribute('href') !== "#") {
+                mobileNavButton.classList.add('visible');
+            }
+        }
+        else {
+            if (link.getAttribute('href') !== "#") {
+                sideNav.classList.add('open')
             }
         }
     });
@@ -43,7 +60,7 @@ window.addEventListener('scroll', function() {
         const mobileNavButton = document.getElementById('mobile-nav-toggle');
         
         // Check if we've scrolled past the splash screen
-        if (window.scrollY > splashHeight - 1 && window.innerWidth <= 768) {
+        if (window.scrollY > 100 && window.innerWidth <= 768) {
             // If scrolled past the splash screen, make the nav button visible
             mobileNavButton.classList.add('visible');
         } else {
@@ -52,7 +69,7 @@ window.addEventListener('scroll', function() {
             sideNav.classList.remove('open');  // Show the side nav
         }
 
-        if (window.scrollY > splashHeight - 1 && window.innerWidth > 768) {
+        if (window.scrollY > 100 && window.innerWidth > 768) {
             sideNav.classList.add('open');  // Show the side nav
         } else {
             sideNav.classList.remove('open');  // Hide the side nav
